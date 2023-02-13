@@ -6,7 +6,7 @@ This project is the official implementation of [3D Dual-Fusion: Dual-Domain Dual
 @article{kim20223ddf,
   title={3D Dual-Fusion: Dual-Domain Dual-Query Camera-LiDAR Fusion for 3D Object Detection},
   author={Kim, Yecheol and Park, Konyul and Kim, Minwook and Kum, Dongsuk and Choi, Jun Won},
-  journal={arXiv preprint arXiv:2211.13529, 3D-DF | DeepLabV3 | 67.3 | 77.1 | TBD |
+  journal={arXiv preprint arXiv:2211.13529},
   year={2022}
 }
 ```
