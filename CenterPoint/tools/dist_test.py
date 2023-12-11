@@ -155,13 +155,13 @@ def main():
     time_end = 0 
 
     for i, data_batch in enumerate(data_loader):
-        # if i == start:
-        #     torch.cuda.synchronize()
-        #     time_start = time.time()
+        if i == start:
+           torch.cuda.synchronize()
+           time_start = time.time()
 
-        # if i == end:
-        #     torch.cuda.synchronize()
-        #     time_end = time.time()
+        if i == end:
+           torch.cuda.synchronize()
+           time_end = time.time()
 
         with torch.no_grad():
             outputs = batch_processor(

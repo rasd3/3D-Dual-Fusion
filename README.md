@@ -31,9 +31,9 @@ Fusing data from cameras and LiDAR sensors is an essential technique to achieve 
 | 3D Model | 2D Model | mAP | NDS | Link |
 | --- | --- | --- | --- | --- |
 | CenterPoint | - | 59.6 | 66.8 | - |
-| CenterPoint + 3D-DF | DeepLabV3 | 67.3 | 71.1 | TBD |
+| [CenterPoint + 3D-DF](CenterPoint/configs/nusc/voxelnet/nusc_centerpoint_voxelnet_0075voxel_fix_bn_z_multimodal_pfat_hybrid7_ifat.py) | DeepLabV3 | 67.3 | 71.1 | [Google](https://drive.google.com/file/d/1QclR8E3mCRPeW8w0xRnvKtuue0e3ECLP/view?usp=sharing) |
 | TransFusion-L | - | 65.1 | 70.1 | TBD |
-| TransFusion-L + 3D-DF | ResNet50 | 69.3 | 72.2 | TBD |
+| [TransFusion-L + 3D-DF](TransFusion/configs/transfusion_nusc_voxel_F.py) | ResNet50 | 69.3 | 72.2 | [Google](https://drive.google.com/file/d/1MId6IvjAEatDerf6iV0LLJQTSgJSr0iI/view?usp=sharing) |
 | TransFusion-L + 3D-DF | Swin-Tiny | 70.6 | 72.9 | TBD |
 
 ## Acknowledgement

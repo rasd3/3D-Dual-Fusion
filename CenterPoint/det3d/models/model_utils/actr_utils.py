@@ -29,7 +29,7 @@ import torch.nn as nn
 import torchvision
 from torch import Tensor
 
-if float(torchvision.__version__[:3]) < 0.5:
+if float(torchvision.__version__[:3]) < 0.5 and False:
     import math
     from torchvision.ops.misc import _NewEmptyTensorOp
     def _check_size_scale_factor(dim, size, scale_factor):
@@ -56,7 +56,7 @@ if float(torchvision.__version__[:3]) < 0.5:
         return [
             int(math.floor(input.size(i + 2) * scale_factors[i])) for i in range(dim)
         ]
-elif float(torchvision.__version__[:3]) < 0.7:
+elif float(torchvision.__version__[:3]) < 0.7 and False:
     from torchvision.ops import _new_empty_tensor
     from torchvision.ops.misc import _output_size
 

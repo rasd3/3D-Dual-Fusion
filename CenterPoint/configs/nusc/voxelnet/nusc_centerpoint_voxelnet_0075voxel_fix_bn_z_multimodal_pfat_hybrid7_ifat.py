@@ -71,20 +71,25 @@ model = dict(
     fusion=dict(
         type='VoxelWithPointProjection',
         fuse_mode='pfat',
-        model_name='ACTRv2',
         pfat_cfg=dict(
             fusion_method='sum',
+            feature_modal='hybrid',
+            hybrid_cfg=dict(
+                attn_layer='BiGateSum1D_2',
+                q_method='sum',
+                q_rep_place=['weight']
+            ),
             num_bins=80,
-            num_channels=[256], #, 256, 256, 256],
+            num_channels=[256],
             query_num_feat=128,
-            num_enc_layers=1,
+            num_enc_layers=2,
             max_num_ne_voxel=26000,
             pos_encode_method='depth'),
         lt_cfg=dict(
             npoint=2048,
             radius=2.0,
             nsample=32,
-            num_layers=1,
+            num_layers=2,
             attn_feat_agg_method='unique',
             feat_agg_method='replace'
         ),
@@ -94,6 +99,13 @@ model = dict(
         image_list=image_list,
         image_scale=image_scale,
         depth_thres=depth_thres,
+        ifat_cfg=dict(
+            fusion_method='Basicgate_patch_iv_multivoxel',
+            img_num_channel=256,
+            pts_num_channel=128,
+            voxel_feat_channel=[32,64,128],
+            voxel_idx=[0,2] #x_conv2,x_conv3,x_conv4
+        ),
     ),
     neck=dict(
         type="RPN",
@@ -197,8 +209,7 @@ train_preprocessor = dict(
     global_rot_noise=[-0.78539816, 0.78539816],
     global_scale_noise=[0.9, 1.1],
     global_translate_std=0.5,
-    #  db_sampler=db_sampler,
-    db_sampler=None,
+    db_sampler=db_sampler,
     class_names=class_names,
     with_info=with_info, # load
 )
@@ -239,7 +250,7 @@ test_anno = None
 
 data = dict(
     samples_per_gpu=1,
-    workers_per_gpu=3,
+    workers_per_gpu=2,
     train=dict(
         type=dataset_type,
         root_path=data_root,

@@ -18,3 +18,4 @@ nuscenes-devkit/
 vis/
 .vscode/
 apex/
+model_zoo/

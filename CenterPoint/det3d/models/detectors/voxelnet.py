@@ -177,7 +177,8 @@ class VoxelNetFusion(VoxelNet):
         preds = self.bbox_head(x)
 
         if return_loss:
-            return self.bbox_head.loss(example, preds, batch_dict)
+            ret = self.bbox_head.loss(example, preds, batch_dict)
+            return ret
         else:
             boxes = self.bbox_head.predict(example, preds, self.test_cfg)
             end_time = time.time()
